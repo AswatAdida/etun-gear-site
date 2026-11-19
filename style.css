@@ -145,17 +145,7 @@ h3 { font-size: 21px; letter-spacing: -.025em; }
 .feature-copy p:not(.eyebrow) { margin-top: 18px; }
 .feature-list { margin: 22px 0 0; padding-left: 1.25em; }
 .feature-list li + li { margin-top: 8px; }
-.material-mark {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 14px 24px;
-  background: var(--night);
-  color: var(--ice);
-  font-size: clamp(22px, 4vw, 48px);
-  letter-spacing: -.04em;
-}
-.material-mark strong { color: var(--snow); }
+.material-photo img { width: 100%; height: auto; }
 .delivery { padding-bottom: 0; }
 .delivery-panel { position: relative; isolation: isolate; color: white; background: var(--navy); overflow: hidden; }
 .delivery-panel img { position: absolute; z-index: -2; inset: 0; height: 100%; width: 100%; object-fit: cover; object-position: center 57%; }
