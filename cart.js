@@ -12,7 +12,7 @@ const products = new Map(cards.map(card => {
   return [id, {
     id,
     name: card.querySelector('h3').textContent,
-    image: card.querySelector('img').getAttribute('src'),
+    image: `assets/cart/${id}.webp`,
     ...pricing[id]
   }];
 }));
@@ -56,6 +56,7 @@ const template = document.querySelector('#cart-item');
 const status = dialog.querySelector('[role="status"]');
 const toast = document.querySelector('.cart-toast');
 let catalogRequested = false;
+let backdropPressed = false;
 let toastTimer;
 
 function renderItem(item) {
@@ -147,17 +148,32 @@ toggle.addEventListener('click', () => {
   close.focus();
 });
 close.addEventListener('click', () => dialog.close());
+
+dialog.addEventListener('pointerdown', event => {
+  backdropPressed = event.target === dialog;
+});
+dialog.addEventListener('click', event => {
+  if (backdropPressed && event.target === dialog) dialog.close();
+  backdropPressed = false;
+});
+
 dialog.addEventListener('close', () => {
   document.documentElement.classList.remove('cart-open');
   if (catalogRequested) {
-    document.querySelector('#catalog-title').focus();
+    catalogRequested = false;
+    const catalog = document.querySelector('#catalog');
+    const smooth = catalog.getBoundingClientRect().top > 0
+      && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelector('#catalog-title').focus({ preventScroll: true });
+    if (location.hash !== '#catalog') history.pushState(history.state, '', '#catalog');
+    catalog.scrollIntoView({ behavior: smooth ? 'smooth' : 'instant' });
   } else {
     toggle.focus({ preventScroll: true });
   }
-  catalogRequested = false;
 });
 dialog.querySelectorAll('[data-cart-catalog]').forEach(link => {
-  link.addEventListener('click', () => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
     catalogRequested = true;
     dialog.close();
   });
