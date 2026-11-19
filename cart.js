@@ -1,3 +1,5 @@
+import { setupCheckout } from './checkout.js';
+
 const storageKey = 'etun_cart_v1';
 const maxQuantity = 999;
 const pricing = {
@@ -92,6 +94,10 @@ function setQuantity(id, quantity) {
   } else {
     cart.delete(id);
   }
+  return saveCart();
+}
+
+function saveCart() {
   try {
     localStorage.setItem(storageKey, JSON.stringify(Object.fromEntries(cart)));
   } catch {
@@ -189,6 +195,19 @@ dialog.addEventListener('keydown', event => {
     (event.shiftKey ? controls.at(-1) : controls[0]).focus();
   }
 });
+
+const checkoutButton = footer.querySelector('.checkout-open');
+checkoutButton.addEventListener('click', setupCheckout({
+  getCartSummary,
+  rubles,
+  clearCart() {
+    cart.clear();
+    saveCart();
+  },
+  restoreFocus() {
+    (cart.size ? checkoutButton : close).focus({ preventScroll: true });
+  }
+}));
 
 renderCart();
 toggle.hidden = false;
