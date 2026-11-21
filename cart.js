@@ -57,6 +57,9 @@ const footer = dialog.querySelector('.cart-footer');
 const template = document.querySelector('#cart-item');
 const status = dialog.querySelector('[role="status"]');
 const toast = document.querySelector('.cart-toast');
+const toastMessage = toast.querySelector('.cart-toast-message');
+const announcement = document.querySelector('.cart-announcement');
+let returnFocus = toggle;
 let catalogRequested = false;
 let backdropPressed = false;
 let toastTimer;
@@ -119,12 +122,14 @@ for (const card of cards) {
     const quantity = cart.get(product.id) ?? 0;
     const added = quantity < maxQuantity;
     if (added) setQuantity(product.id, quantity + 1);
-    toast.textContent = added
+    const message = added
       ? `Добавлено: ${product.name}. Количество: ${quantity + 1}`
       : `Достигнут предел количества: ${product.name}`;
-    toast.classList.add('is-visible');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
+    announcement.textContent = message;
+    toastMessage.textContent = message;
+    add.after(toast);
+    toast.hidden = false;
+    scheduleToastHide();
   });
 }
 
@@ -148,11 +153,26 @@ list.addEventListener('click', event => {
   (replacement ?? (cart.size ? close : empty.querySelector('a'))).focus();
 });
 
-toggle.addEventListener('click', () => {
+function scheduleToastHide() {
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { toast.hidden = true; }, 5000);
+}
+
+function openCart(opener) {
+  returnFocus = opener;
   dialog.showModal();
   document.documentElement.classList.add('cart-open');
   close.focus();
+  toast.hidden = true;
+  clearTimeout(toastTimer);
+}
+
+toast.addEventListener('focus', () => clearTimeout(toastTimer));
+toast.addEventListener('blur', () => {
+  if (!dialog.open) scheduleToastHide();
 });
+toast.addEventListener('click', () => openCart(toast.previousElementSibling));
+toggle.addEventListener('click', () => openCart(toggle));
 close.addEventListener('click', () => dialog.close());
 
 dialog.addEventListener('pointerdown', event => {
@@ -174,7 +194,7 @@ dialog.addEventListener('close', () => {
     if (location.hash !== '#catalog') history.pushState(history.state, '', '#catalog');
     catalog.scrollIntoView({ behavior: smooth ? 'smooth' : 'instant' });
   } else {
-    toggle.focus({ preventScroll: true });
+    returnFocus.focus({ preventScroll: true });
   }
 });
 dialog.querySelectorAll('[data-cart-catalog]').forEach(link => {

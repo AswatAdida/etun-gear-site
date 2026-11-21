@@ -226,7 +226,11 @@ ym(114141068,'init',{
     <small>© Ётун, 2026</small>
   </div>
 </footer>
-<p class="cart-toast" role="status" aria-atomic="true"></p>
+<p class="visually-hidden cart-announcement" role="status" aria-atomic="true"></p>
+<button class="cart-toast" type="button" aria-haspopup="dialog" aria-controls="cart" hidden>
+  <span class="cart-toast-message"></span>
+  <strong>Открыть корзину <span aria-hidden="true">→</span></strong>
+</button>
 <dialog class="cart-drawer" id="cart" aria-labelledby="cart-title">
   <div class="cart-layout">
     <header class="cart-header">
