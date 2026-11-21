@@ -356,30 +356,10 @@ h3 { font-size: 21px; letter-spacing: -.025em; }
 .checkout .cart-header h2 { font-size: clamp(23px, 4vw, 32px); }
 .checkout-body { min-height: 0; overflow: auto; overscroll-behavior: contain; padding: clamp(16px, 3vw, 30px); }
 .checkout-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: 24px; align-items: start; }
-.checkout-field + .checkout-field { margin-top: 13px; }
-.checkout-field label { display: block; margin-bottom: 4px; font-weight: 700; }
-.checkout-field label span { font-weight: 400; }
-.checkout-field input:not([type="checkbox"]), .checkout-field select, .checkout-field textarea {
-  width: 100%;
-  min-height: 44px;
-  padding: 8px 10px;
-  border: 1px solid #718da1;
-  background: white;
-  color: inherit;
-  font: inherit;
-}
-.checkout-field textarea { resize: vertical; }
-.checkout-field [aria-invalid="true"]:not([type="checkbox"]) { border-color: #a12c28; }
-.checkout-field .checkout-consent { display: flex; align-items: flex-start; gap: 9px; }
-.checkout-consent input { width: 18px; height: 18px; margin: 3px 0 0; flex: none; accent-color: var(--navy); }
-.checkout-policy-link, .checkout-delivery-note, .checkout-disabled, .checkout-error, .checkout-summary p { font-size: 14px; }
-.checkout-error, .checkout-status[data-state="error"] { color: #922320; }
-.checkout-error { margin-top: 4px; }
-.checkout-delivery-note { margin-top: 16px; }
-.checkout-disabled { margin-top: 10px; color: var(--muted); }
-.checkout-submit { margin-top: 12px; font-family: inherit; cursor: pointer; }
-.checkout-submit:focus-visible { outline-color: var(--navy); }
-.checkout-submit:disabled { background: #dbe5ec; color: #42596b; cursor: default; }
+.checkout-form-panel { min-width: 0; }
+.checkout-form-panel > p { margin-bottom: 12px; }
+.checkout-delivery-note, .checkout-summary p { font-size: 14px; }
+.checkout-qform { min-width: 0; }
 .checkout-summary { padding: 16px; background: #e6f1f8; border: 1px solid var(--line); }
 .checkout-items { margin: 8px 0 12px; padding: 0; list-style: none; }
 .checkout-items li {

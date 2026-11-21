@@ -1,4 +1,4 @@
-// Configure the public Formspree ID, then enable only after approving the
-// privacy policy and verifying that the actual processing arrangement is lawful.
-export const formspreeFormId = '';
+// Enable on an authorized domain after approving the privacy notice and
+// configuring the QForm success callback. See README.md for verification.
 export const orderSubmissionEnabled = false;
+export const qformFormId = 'form_YLyUeffbqwI4sCyYjLbJZlUPWPwoiAPl';
