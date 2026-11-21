@@ -48,6 +48,7 @@ ym(114141068,'init',{
 });
 </script>
 <!-- /Yandex.Metrika counters -->
+<script type="module" src="cart.js"></script>
 </head><body>
 <noscript>
     <div>
@@ -71,7 +72,15 @@ ym(114141068,'init',{
       <a href="#delivery">Доставка</a>
       <a href="#about">О бренде</a>
     </nav>
-    <div class="header-actions"><a class="button button-outline" href="#catalog">В каталог <span aria-hidden="true">→</span></a></div>
+    <div class="header-actions">
+      <a class="button button-outline" href="#catalog">В каталог <span aria-hidden="true">→</span></a>
+      <button class="button cart-toggle" type="button" aria-label="Корзина, 0 единиц продажи" aria-haspopup="dialog" aria-controls="cart" hidden>
+        <svg aria-hidden="true" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h3l2.5 12h11L21 6H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/>
+        </svg>
+        <span class="cart-count" aria-hidden="true">0</span>
+      </button>
+    </div>
   </div>
 </header>
 <main id="content">
@@ -94,43 +103,48 @@ ym(114141068,'init',{
   <section class="section catalog" id="catalog" aria-labelledby="catalog-title">
     <div class="shell">
       <div class="section-intro">
-        <h2 id="catalog-title">Каталог</h2>
+        <h2 id="catalog-title" tabindex="-1">Каталог</h2>
         <p>Подберите защиту для своего инструмента. Совместимость с конкретной моделью уточним в Telegram.</p>
       </div>
+      <noscript><p>Включите JavaScript, чтобы увидеть цены и воспользоваться корзиной.</p></noscript>
       <div class="product-grid">
         <article class="product" data-product-id="ice-tool">
-          <div class="product-image"><img src="assets/ice-tool.webp" alt="Жёлтые защитные насадки для ледовых инструментов" width="1200" height="900" loading="lazy"></div>
+          <div class="product-image"><img src="assets/catalog/ice-tool.webp" alt="Жёлтые защитные насадки для ледовых инструментов" width="800" height="600" loading="lazy"></div>
           <div class="product-body">
             <h3>Защита для ледовых инструментов</h3>
             <p>Защищает клювы при транспортировке и хранении.</p>
-            <div class="price"><strong>450 ₽</strong> <span>за пару</span></div>
+            <div class="price" hidden><strong></strong> <span></span></div>
+            <button class="button button-accent add-to-cart" type="button" hidden>В корзину</button>
             <a href="https://t.me/etun_gear" aria-label="Уточнить совместимость защиты для ледовых инструментов в Telegram">Уточнить совместимость <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="product" data-product-id="ice-axe">
-          <div class="product-image"><img src="assets/ice-axe.webp" alt="Защитный чехол на клюве ледоруба" width="1200" height="900" loading="lazy"></div>
+          <div class="product-image"><img src="assets/catalog/ice-axe.webp" alt="Защитный чехол на клюве ледоруба" width="800" height="600" loading="lazy"></div>
           <div class="product-body">
             <h3>Защита для ледоруба</h3>
             <p>Закрывает острый клюв ледоруба.</p>
-            <div class="price"><strong>250 ₽</strong> <span>за штуку</span></div>
+            <div class="price" hidden><strong></strong> <span></span></div>
+            <button class="button button-accent add-to-cart" type="button" hidden>В корзину</button>
             <a href="https://t.me/etun_gear" aria-label="Уточнить совместимость защиты для ледоруба в Telegram">Уточнить совместимость <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="product" data-product-id="ice-screw">
-          <div class="product-image"><img src="assets/ice-screw.webp" alt="Жёлтый защитный колпачок ледобура" width="1200" height="1100" loading="lazy"></div>
+          <div class="product-image"><img src="assets/catalog/ice-screw.webp" alt="Жёлтый защитный колпачок ледобура" width="800" height="600" loading="lazy"></div>
           <div class="product-body">
             <h3>Колпачки для ледобуров</h3>
             <p>Закрывают острые части ледобура.</p>
-            <div class="price"><strong>150 ₽</strong> <span>за штуку</span></div>
+            <div class="price" hidden><strong></strong> <span></span></div>
+            <button class="button button-accent add-to-cart" type="button" hidden>В корзину</button>
             <a href="https://t.me/etun_gear" aria-label="Уточнить совместимость колпачков для ледобуров в Telegram">Уточнить совместимость <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="product" data-product-id="crampons">
-          <div class="product-image"><img src="assets/crampons.webp" alt="Жёлтые чехлы на зубьях альпинистских кошек" width="1200" height="800" loading="lazy"></div>
+          <div class="product-image"><img src="assets/catalog/crampons.webp" alt="Жёлтые чехлы на зубьях альпинистских кошек" width="800" height="600" loading="lazy"></div>
           <div class="product-body">
             <h3>Чехол для альпинистских кошек</h3>
             <p>Закрывает острые зубья альпинистских кошек.</p>
-            <div class="price"><strong>1 400 ₽</strong> <span>за пару</span></div>
+            <div class="price" hidden><strong></strong> <span></span></div>
+            <button class="button button-accent add-to-cart" type="button" hidden>В корзину</button>
             <a href="https://t.me/etun_gear" aria-label="Уточнить совместимость чехла для альпинистских кошек в Telegram">Уточнить совместимость <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -140,9 +154,8 @@ ym(114141068,'init',{
 
   <section class="material" id="material" aria-labelledby="material-title">
     <div class="shell split">
-      <div class="feature-photo material-photo">
-        <img src="assets/editorial/09_ice_detail.webp" alt="" width="1280" height="961" loading="lazy">
-        <div class="material-mark" aria-hidden="true">TPU <strong>95A</strong></div>
+      <div class="material-photo">
+        <img src="assets/production/etun-3d-printing.webp" alt="Принтер Bambu Lab печатает жёлтую защиту для ледового инструмента" width="1511" height="1041" loading="lazy">
       </div>
       <div class="feature-copy">
         <p class="eyebrow">Материал и технология</p>
@@ -209,8 +222,84 @@ ym(114141068,'init',{
       <a href="https://www.instagram.com/yotun_equipment?stkn=MTB5b2UwNHZ1enJuZw==" target="_blank" rel="noopener noreferrer">Instagram</a>
     </nav>
     <a class="footer-credits" href="photo-credits.html">Авторы фотографий</a>
+    <a class="footer-credits" href="privacy.html">Политика обработки персональных данных</a>
     <small>© Ётун, 2026</small>
   </div>
 </footer>
+<p class="visually-hidden cart-announcement" role="status" aria-atomic="true"></p>
+<button class="cart-toast" type="button" aria-haspopup="dialog" aria-controls="cart" hidden>
+  <span class="cart-toast-message"></span>
+  <strong>Открыть корзину <span aria-hidden="true">→</span></strong>
+</button>
+<dialog class="cart-drawer" id="cart" aria-labelledby="cart-title">
+  <div class="cart-layout">
+    <header class="cart-header">
+      <h2 id="cart-title">Корзина</h2>
+      <button class="cart-icon-button cart-close" type="button" aria-label="Закрыть корзину" autofocus>×</button>
+    </header>
+    <div class="cart-content">
+      <div class="cart-empty">
+        <p>В корзине пока пусто</p>
+        <a class="button button-accent" data-cart-catalog href="#catalog">Перейти в каталог</a>
+      </div>
+      <ul class="cart-items" aria-label="Товары в корзине"></ul>
+    </div>
+    <div class="cart-footer" hidden>
+      <div class="cart-total"><span>Стоимость товаров</span><strong></strong></div>
+      <p>Без учёта доставки</p>
+      <p>Стоимость доставки согласовывается отдельно.</p>
+      <button class="button button-accent checkout-open" type="button" aria-haspopup="dialog" aria-controls="checkout">Оформить заказ</button>
+      <a class="button cart-continue" data-cart-catalog href="#catalog">Продолжить покупки</a>
+    </div>
+    <p class="visually-hidden" role="status" aria-atomic="true"></p>
+  </div>
+</dialog>
+<template id="cart-item">
+  <li class="cart-item">
+    <img class="cart-thumb" alt="" width="66" height="66">
+    <div class="cart-item-body">
+      <h3></h3>
+      <p class="cart-unit-price"></p>
+      <div class="cart-item-actions">
+        <div class="cart-quantity">
+          <button class="cart-icon-button" type="button" data-action="decrease">−</button>
+          <span class="cart-quantity-value"></span>
+          <button class="cart-icon-button" type="button" data-action="increase">+</button>
+        </div>
+        <strong class="cart-subtotal"></strong>
+      </div>
+      <button class="cart-remove" type="button" data-action="remove">Удалить</button>
+    </div>
+  </li>
+</template>
+<dialog id="checkout" class="checkout" aria-labelledby="checkout-title">
+  <header class="cart-header">
+    <h2 id="checkout-title">Оформление заказа</h2>
+    <button class="cart-icon-button checkout-close" type="button" aria-label="Закрыть оформление" autofocus>×</button>
+  </header>
+  <div class="checkout-body">
+    <div class="checkout-layout">
+      <div class="checkout-form-panel">
+        <p class="checkout-delivery-note">Стоимость доставки рассчитывается отдельно и согласовывается после подтверждения заказа.</p>
+        <p><a href="privacy.html" target="_blank" rel="noopener noreferrer">Политика обработки персональных данных (новая вкладка)</a></p>
+        <p class="checkout-status" role="status" aria-live="polite" aria-atomic="true">Отправка заявок пока недоступна.</p>
+        <div class="checkout-qform" inert hidden></div>
+      </div>
+      <section class="checkout-summary" aria-labelledby="checkout-summary-title">
+        <h3 id="checkout-summary-title">Состав заказа</h3>
+        <ul class="checkout-items"></ul>
+        <div class="cart-total"><span>Стоимость товаров</span><strong></strong></div>
+        <p>Без учёта доставки</p>
+      </section>
+    </div>
+  </div>
+</dialog>
+<template id="checkout-item">
+  <li>
+    <strong class="checkout-item-name"></strong>
+    <span class="checkout-item-detail"></span>
+    <strong class="checkout-item-subtotal"></strong>
+  </li>
+</template>
 </body>
 </html>
