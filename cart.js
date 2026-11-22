@@ -3,7 +3,7 @@ import { setupCheckout } from './checkout.js';
 const storageKey = 'etun_cart_v1';
 const maxQuantity = 999;
 const pricing = {
-  'ice-tool': { price: 450, unit: 'за пару' },
+  'ice-tool': { price: 300, unit: 'за штуку' },
   'ice-axe': { price: 250, unit: 'за штуку' },
   'ice-screw': { price: 150, unit: 'за штуку' },
   crampons: { price: 1400, unit: 'за пару' }
